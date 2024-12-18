@@ -26,7 +26,7 @@ int main() {
 		CLASS_NAME,
 		L"First Window",
 		WS_OVERLAPPEDWINDOW,
-		CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT,
+		CW_USEDEFAULT, CW_USEDEFAULT, 400, 400,
 		NULL,
 		NULL,
 		hInstance,
@@ -39,11 +39,22 @@ int main() {
 
 	CreateWindow(
 		L"BUTTON",
-		L"Button 1",
+		L"Button 1", //Button text
 		WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,
-		50, 50, 100, 30,
-		hwnd,
-		(HMENU)1,
+		0, 0, 100, 30, //Positioning of button x,y and width, height
+		hwnd, //Parent window
+		(HMENU)1, //Button Id for use in WindowProc to determine which button was pressed
+		hInstance,
+		NULL
+	);
+
+	CreateWindow(
+		L"BUTTON",
+		L"Button 2", //Button text
+		WS_TABSTOP | WS_VISIBLE | WS_CHILD | BS_DEFPUSHBUTTON,
+		0, 30, 100, 30, //Positioning of button x,y and width, height
+		hwnd, //Parent window
+		(HMENU)2, //Button Id for use in WindowProc to determine which button was pressed
 		hInstance,
 		NULL
 	);
